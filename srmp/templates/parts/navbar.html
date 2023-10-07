@@ -1,0 +1,19 @@
+ {% load static %}
+ <header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center">    
+    <a href="{% url 'home' %}" class="logo me-auto" style="max-height: 10rem;"><img src="{% static 'images/logo.png' %}" alt="" class="img-fluid" style="width: 7rem;"></a>
+    <nav id="navbar" class="navbar order-last order-lg-0 " >
+      <ul>
+        <li><a class="nav-link" href="{% url 'home' %}">Accueil</a></li>
+        <li><a class="nav-link" href="{% url 'medecin' %}">Médecin</a></li>
+        <li><a class="nav-link" href="{% url 'services' %}">Services</a></li> 
+        <li><a class="nav-link" href="{% url 'propos' %}">À propos</a></li>
+        <li><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>  
+        <li><a class="nav-link" href="{% url 'login' %}">Login</a></li> 
+        <li><a class="nav-link" href="{% url 'register' %}">Register</a></li> 
+       
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+  </div>
+</header>

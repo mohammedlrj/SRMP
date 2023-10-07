@@ -1,0 +1,98 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+
+
+<section id="doctors" class="doctors">
+    <div class="container">
+      <br><br>
+      <div class="section-title">
+        <h2>Médecin</h2>
+        
+        <style>        
+          input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 17px;
+            font-size: 20px;
+            flex: 1;
+            width: 700px;
+          }
+        
+          button[type="submit"] {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius:17px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 1%;
+            margin-left: 2%;
+            
+          }
+          button{
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 17px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 1%;
+            text-align: center;
+            
+          }
+          .a {
+            color:white;
+          }
+        </style>
+        
+        <form action="{% url 'medecin' %}" method="GET">
+          {% csrf_token %}
+          <input type="text" name="searched" placeholder="Chercher un Docteur"/>
+          <button type="submit">Chercher...</button>
+          <button><a class="a" href="{% url 'register' %}">Ajouter un médecin</a></button>
+        </form>
+        <div class="container"><br>
+        <p style="text-align: center;">Les recommandations de médecins peuvent être précieuses lorsqu'il s'agit de choisir un nouveau médecin,
+           surtout si vous recherchez une spécialité spécifique ou si vous avez des besoins de santé particuliers.</p>
+           <br><br>
+      </div>
+      <div class="row">
+          {% for item in medecin %}
+          <div class="col-lg-6 mt-4">
+              <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" style="max-height: 90%;"><br><br>
+                <a href="#">
+                  {% if item.image %}
+                    <img class="rounded-t-lg"  src="{{ item.image.url }}" alt="doctors" style="max-width: 400px; max-height: 300px;"/>
+                  {% endif %}
+                </a>
+                <div class="p-5">
+                  <h4 class="mb-2" style="color: #007bff">{{item.fullname}}</h4>
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  <h5>{{item.specialitesmedicales}}</h5>
+                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"> {{item.telephone }} </p> 
+                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"> {{item.email }} </p> 
+                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"> {{item.adresse }} </p> 
+                  
+                    <br><br>
+                </div>
+              </div>
+            </div> 
+          {% endfor %}
+      </div>
+
+    </div>
+  </section>
+    <!-- Vendor JS Files -->
+    <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+    
+    <!-- Template Main JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
+    {% endblock content %}  

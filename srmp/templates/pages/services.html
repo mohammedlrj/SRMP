@@ -1,0 +1,62 @@
+ <!-- ======= Services Section ======= -->
+ {% extends 'base.html' %} 
+ {% load static %}
+ {% block content %}
+ 
+ <section id="services" class="services">
+    <div class="container">
+      <br><br>
+      <div class="section-title">
+        <br>
+        <h2>Services</h2>
+        <p style="text-align: center;">Ces services combinés offrent aux utilisateurs une expérience de recherche de médecin personnalisée,
+           pratique et fiable,tout en les aidant à prendre des décisions éclairées pour leur santé.
+           En résumé, un site de recommandation de médecin personnalisé offre aux utilisateurs 
+           une plateforme conviviale pour trouver des médecins adaptés à leurs besoins, 
+           en utilisant des recommandations</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="icon-box">
+            <a href="{% url 'medecin' %}" class="clickable-icon">
+              <div class="icon">
+                <i class="fa-solid fa-user-doctor"></i> 
+              </div>
+            </a>
+            
+              <h4><a href="{% url 'medecin' %}">Chercher un docteur</a></h4>
+            <p>Le site utilise des algorithmes pour générer des recommandations personnalisées de médecins en 
+              fonction des préférences et des besoins spécifiques de chaque utilisateur</p>
+            </div>
+        </div>
+
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+              <div class="icon-box">
+                <a href="{% url 'produit' %}" class="clickable-icon">
+                  <div class="icon">
+                    <i class="fa-solid fa-kit-medical"></i> 
+                  </div>
+                </a>
+                  <h4><a href="{% url 'produit' %}">Produit complément alimentaire</a></h4>
+                <p>Il est essentiel de souligner que les compléments alimentaires médicaux doivent être
+                  utilisés conformément aux recommandations d'un professionnel de la santé.</p>
+                </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+          <div class="icon-box">
+            <a href="{% url 'specialites' %}" class="clickable-icon">
+            <div class="icon">
+              <i class="fa-solid fa-comment"></i> 
+            </div>
+          </a>
+            <h4><a href="{% url 'specialites' %}">Spécialités </a></h4>
+            <p>Les services spécifiques proposés par un médecin peuvent varier
+               en fonction de sa spécialité et de son domaine d'expertise</p>
+          </div>
+        </div>
+    </div>
+  </section>
+  {% endblock content %}
